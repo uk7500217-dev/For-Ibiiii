@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Irha!</title>
+    <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --soft-pink: #fff0f3;
+            --gold: #ffb703;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--soft-pink);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #590d22;
+            overflow-x: hidden;
+        }
+
+        /* Love Theme Background Decor */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--primary-pink);
+            text-shadow: 2px 2px white;
+            margin-bottom: 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px auto;
+        }
+
+        .gif-container img {
+            border-radius: 15px;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+
+        /* Cake Section */
+        .cake-section {
+            margin: 50px auto;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        #cake-display {
+            font-size: 100px;
+            transition: transform 0.3s;
+        }
+
+        .instruction {
+            font-style: italic;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+        }
+
+        #message-area {
+            height: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c9184a;
+            margin-top: 20px;
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn:hover {
+            background: #ff758f;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Birthday, Irha! 💖</h1>
+        <p style="font-size: 1.5rem;">To the girl who fills every day with love.</p>
+    </header>
+
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZ3R4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ力を/SRO0ZwmImic0/giphy.gif" alt="Hearts">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZ3R4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ力を/106krc38lsfS80/giphy.gif" alt="Love">
+    </div>
+
+    <hr style="width: 50%; border: 1px solid #ffb3c1; margin: 40px auto;">
+
+    <div class="cake-section" onclick="sliceCake()">
+        <p class="instruction">Tap the cake to slice it! 🔪</p>
+        <div id="cake-display">🎂</div>
+        <div id="message-area"></div>
+    </div>
+
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZ3R4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ力を/uo6zE0X7lIsyA/giphy.gif" alt="Celebrate">
+    </div>
+
+    <footer>
+        <p>Wishing you a year as sweet and beautiful as you are, Irha.</p>
+        <button class="btn" onclick="rainHearts()">Send More Love! 💗</button>
+    </footer>
+
+    <script>
+        let sliced = false;
+
+        function sliceCake() {
+            const cake = document.getElementById('cake-display');
+            const message = document.getElementById('message-area');
+            
+            if (!sliced) {
+                cake.innerHTML = "🍰🍴";
+                cake.style.transform = "scale(1.2)";
+                message.innerHTML = "Delicious! A slice of love for Irha! ✨";
+                sliced = true;
+                confettiEffect();
+            } else {
+                cake.innerHTML = "🎂";
+                message.innerHTML = "Make a wish and slice again!";
+                sliced = false;
+            }
+        }
+
+        function rainHearts() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = "-5vh";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.transition = "transform 3s linear, opacity 3s";
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.style.transform = `translateY(110vh) rotate(${Math.random() * 360}deg)`;
+                    heart.style.opacity = "0";
+                }, 100);
+
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        function confettiEffect() {
+            // Simple visual "pop"
+            document.body.style.backgroundColor = "#ffccd5";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "#fff0f3";
+            }, 200);
+        }
+    </script>
+</body>
+  </html>
